@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_apps/pages/detail_page.dart';
 import 'package:flutter_apps/widgets/type_chip.dart';
 import 'package:flutter_apps/models/pokemon.dart';
 
@@ -8,8 +9,15 @@ class PokemonList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void _detailPage(Pokemon pokemon) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => DetailPage(pokemon: pokemon)),
+      );
+    }
+
     return ListTile(
-      onTap: () {},
+      onTap: () => _detailPage(pokemon),
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(999),
         child: Hero(
