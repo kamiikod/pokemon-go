@@ -21,10 +21,17 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pokemon Go"),
+        title: Text(
+          "Pokemon Go",
+          style: TextStyle(fontFamily: 'PokemonSolid', fontWeight: FontWeight.bold, color: Colors.amber),
+        ),
         centerTitle: true,
         leading: Icon(Icons.arrow_back_outlined),
-        actions: [Icon(Icons.favorite), SizedBox(width: 10), Text('$screenSize')],
+        actions: [
+          Icon(Icons.favorite),
+          SizedBox(width: 10),
+          Text('$screenSize'),
+        ],
       ),
       body: Column(
         children: [
@@ -41,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                 } else {
                   return GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, 
+                      crossAxisCount: 2,
                     ),
                     itemBuilder: (context, index) {
                       return PokemonCard(pokemon: pokemon[index]);

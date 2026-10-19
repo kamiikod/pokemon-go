@@ -9,6 +9,7 @@ final List<Pokemon> dataPokemon = [
     description:
         "Ada benih tanaman di punggungnya sejak lahir. Benih tersebut perlahan tumbuh membesar seiring pertumbuhan tubuhnya.",
     basePower: 318,
+    movies: [],
     skills: ["Vine Whip", "Razor Leaf", "Sleep Powder", "Solar Beam"],
   ),
   // 2
@@ -19,6 +20,7 @@ final List<Pokemon> dataPokemon = [
     description:
         "Api di ujung ekornya menunjukkan emosi dan staminanya. Jika ia bersemangat atau marah, apinya akan berkobar lebih besar.",
     basePower: 309,
+    movies: [],
     skills: ["Scratch", "Ember", "Flamethrower", "Fire Spin"],
   ),
   // 3
@@ -27,8 +29,9 @@ final List<Pokemon> dataPokemon = [
     image: "assets/dragonite.jpg",
     type: "Dragon",
     description:
-        "Pokemon yang sangat baik hati dan suka menolong kapal yang karam di laut. Ia mampu mengelilingi dunia hanya dalam waktu 16 jam.",
+        " yang sangat baik hati dan suka menolong kapal yang karam di laut. Ia mampu mengelilingi dunia hanya dalam waktu 16 jam.",
     basePower: 600,
+    movies: [],
     skills: ["Dragon Claw", "Outrage", "Hurricane", "Hyper Beam"],
   ),
   // 4
@@ -39,6 +42,7 @@ final List<Pokemon> dataPokemon = [
     description:
         "Memiliki struktur genetik yang tidak stabil dan sangat unik, memungkinkannya berevolusi menjadi berbagai wujud sesuai lingkungannya.",
     basePower: 325,
+    movies: [],
     skills: ["Quick Attack", "Bite", "Swift", "Take Down"],
   ),
   // 5
@@ -49,6 +53,7 @@ final List<Pokemon> dataPokemon = [
     description:
         "Bersembunyi di dalam bayangan korbannya. Saat Gengar mendekat, suhu di sekelilingnya bisa mendadak turun drastis hingga terasa membeku.",
     basePower: 500,
+    movies: [],
     skills: ["Shadow Ball", "Sludge Bomb", "Hypnosis", "Dream Eater"],
   ),
   // 6
@@ -59,6 +64,7 @@ final List<Pokemon> dataPokemon = [
     description:
         "Mengembangkan tubuhnya untuk menyanyikan melodi merdu tanpa henti hingga membuat musuh dan siapapun di dekatnya tertidur lelap.",
     basePower: 270,
+    movies: [],
     skills: ["Sing", "Pound", "Disarming Voice", "Rest"],
   ),
   // 7
@@ -69,6 +75,7 @@ final List<Pokemon> dataPokemon = [
     description:
         "Mampu membaca dan mengendalikan gelombang aura yang dipancarkan oleh makhluk hidup di sekitarnya untuk mendeteksi lawan dari kejauhan.",
     basePower: 525,
+    movies: [],
     skills: ["Aura Sphere", "Close Combat", "Bone Rush", "Force Palm"],
   ),
   // 8
@@ -79,6 +86,7 @@ final List<Pokemon> dataPokemon = [
     description:
         "Menyimpan listrik di dalam kantung pipinya yang berwarna merah. Ia akan melepaskan sengatan listrik bertegangan tinggi saat merasa terancam.",
     basePower: 320,
+    movies: [],
     skills: ["Thunderbolt", "Quick Attack", "Iron Tail", "Electro Ball"],
   ),
   // 9
@@ -89,6 +97,7 @@ final List<Pokemon> dataPokemon = [
     description:
         "Menghabiskan sebagian besar harinya untuk tidur dan makan hingga 400 kg makanan setiap hari. Perutnya tahan terhadap berbagai racun.",
     basePower: 540,
+    movies: [],
     skills: ["Body Slam", "Rest", "Snore", "Heavy Slam"],
   ),
   // 10
@@ -99,6 +108,7 @@ final List<Pokemon> dataPokemon = [
     description:
         "Saat merasa terancam, ia menarik kepala dan anggota badannya ke dalam tempurung, lalu menyemprotkan air bertekanan tinggi dari mulutnya.",
     basePower: 314,
+    movies: [],
     skills: ["Water Gun", "Bubble", "Aqua Tail", "Hydro Pump"],
   ),
 ];

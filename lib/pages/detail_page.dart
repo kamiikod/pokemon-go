@@ -9,7 +9,16 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(pokemon.name)),
+      appBar: AppBar(
+        title: Text(
+          pokemon.name,
+          style: TextStyle(
+            fontFamily: 'Pokemon',
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth > 768) {
@@ -37,6 +46,7 @@ class DetailPage extends StatelessWidget {
                         Text(
                           pokemon.name,
                           style: TextStyle(
+                            fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
                             color: Colors.black,
@@ -46,6 +56,8 @@ class DetailPage extends StatelessWidget {
                         Text(
                           "Base Power : ${pokemon.basePower}",
                           style: TextStyle(
+                            fontFamily: 'Montserrat',
+
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                           ),
@@ -62,12 +74,15 @@ class DetailPage extends StatelessWidget {
                         Text(
                           pokemon.description,
                           textAlign: TextAlign.justify,
-                          style: TextStyle(),
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                          ),
                         ),
                         SizedBox(height: 8),
                         Text(
                           "Skills",
                           style: TextStyle(
+                            fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                           ),
@@ -138,6 +153,7 @@ class DetailPage extends StatelessWidget {
                         Text(
                           pokemon.name,
                           style: TextStyle(
+                            fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
                             color: Colors.black,
@@ -160,6 +176,7 @@ class DetailPage extends StatelessWidget {
                         Text(
                           "Base Power : ${pokemon.basePower}",
                           style: TextStyle(
+                            fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                           ),
@@ -182,6 +199,7 @@ class DetailPage extends StatelessWidget {
                         Text(
                           "Skills",
                           style: TextStyle(
+                            fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                           ),
