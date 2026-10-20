@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
+
 class Pokemon {
   //properties
   final String name;
@@ -8,6 +10,17 @@ class Pokemon {
   final List<String> skills;
   final List<String> movies;
 
+  // Properties Baru
+  final String height; // Contoh: "0.7 m"
+  final String weight; // Contoh: "6.9 kg"
+  final String category; // Contoh: "Seed Pokémon", "Lizard Pokémon"
+  final String ability; // Contoh: "Overgrow", "Blaze", "Static"
+  final List<String> weaknesses; // Contoh: ["Fire", "Psychic", "Flying"]
+  final Map<String, int>
+  stats; // Contoh: {'HP': 45, 'Attack': 49, 'Defense': 49, 'Speed': 45}
+  final List<String>?
+  evolutions; // Contoh: ["Bulbasaur", "Ivysaur", "Venusaur"]
+  final Bool isFavorite;
 
   Pokemon({
     required this.name,
@@ -17,8 +30,14 @@ class Pokemon {
     required this.description,
     required this.skills,
     required this.movies,
-
-
+    required this.height,
+    required this.weight,
+    required this.category,
+    required this.ability,
+    required this.weaknesses,
+    required this.stats,
+    required this.evolutions,
+    required this.isFavorite,
   });
 
   //  CTRL + ALT + L => REFORMAT CODE

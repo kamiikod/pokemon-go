@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Icon(Icons.favorite),
           SizedBox(width: 10),
-          Text('$screenSize'),
+          
         ],
       ),
       body: Column(
