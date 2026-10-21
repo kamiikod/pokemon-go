@@ -15,14 +15,41 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final List<Pokemon> pokemon = dataPokemon;
 
+  String _searchQuery = '';
+  bool _showFavoriteOnly = false;
+  final Set<String> _favoritePokemon = {};
+  final TextEditingController _searchController = TextEditingController();
+
+  void _toggleFavorite(String name) {
+    setState(() {
+      if (_favoritePokemon.contains(name)) {
+        _favoritePokemon..remove(name);
+      } else {
+        _favoritePokemon.add(name);
+      }
+    });
+  }
+
   Future<void> _openDetail(pokemon, bool isFavorite) async {
-    await Navigator.push(
+    final result = await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (_) => DetailPage(pokemon: pokemon, isFavorite: isFavorite),
       ),
     );
+
+    if (result != null){
+      setState(() {
+        if (result) {
+          _favoritePokemon.add(pokemon.name);
+        } else {
+          _favoritePokemon.remove(pokemon.name);
+        }
+      });
+    }
   }
+
+  bool isSwitch = false;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +71,25 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Search Pokemon",
+                      prefixIcon: Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                ),
+                Switch(value: isSwitch, onChanged: (value) {}),
+              ],
+            ),
+          ),
           Expanded(
             child: LayoutBuilder(
               builder: (context, constraints) {
