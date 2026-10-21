@@ -137,39 +137,28 @@ class _HomePageState extends State<HomePage> {
                     },
                     itemCount: filtered.length,
                   );
-                } else if (constraints.maxWidth <= 768) {
+                } else {
+                  int column = 3;
+                  if (constraints.maxWidth <= 768) column == 4;
+                  if (constraints.maxWidth <= 1024) column == 5;
                   return GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
+                      crossAxisCount: column,
                     ),
                     itemBuilder: (context, index) {
+                      final pokemon = filtered[index];
+                      final isFavorite = _favoritePokemon.contains(
+                        pokemon.name,
+                      );
                       return PokemonCard(
-                        pokemon: pokemon[index],
-                        type: pokemon[index].type,
-                        isFavorite: true,
-                        onTap: () {
-                          _openDetail(pokemon, true);
-                        },
-                        onFavoriteTap: () {},
+                        pokemon: pokemon,
+                        type: filtered[index].type,
+                        isFavorite: isFavorite,
+                        onTap: () => _openDetail(pokemon, isFavorite),
+                        onFavoriteTap: () => _toggleFavorite(pokemon.name),
                       );
                     },
-                    itemCount: pokemon.length,
-                  );
-                } else {
-                  return GridView.builder(
-                    itemBuilder: (context, index) => PokemonCard(
-                      pokemon: pokemon[index],
-                      type: pokemon[index].type,
-                      isFavorite: true,
-                      onTap: () {
-                        _openDetail(pokemon, true);
-                      },
-                      onFavoriteTap: () {},
-                    ),
-                    itemCount: pokemon.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
-                    ),
+                    itemCount: filtered.length,
                   );
                 }
               },
