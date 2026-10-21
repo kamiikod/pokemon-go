@@ -1,4 +1,4 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
+
 
 class Pokemon {
   //properties
@@ -20,7 +20,7 @@ class Pokemon {
   stats; // Contoh: {'HP': 45, 'Attack': 49, 'Defense': 49, 'Speed': 45}
   final List<String>?
   evolutions; // Contoh: ["Bulbasaur", "Ivysaur", "Venusaur"]
-  final Bool isFavorite;
+
 
   Pokemon({
     required this.name,
@@ -37,7 +37,7 @@ class Pokemon {
     required this.weaknesses,
     required this.stats,
     required this.evolutions,
-    required this.isFavorite,
+
   });
 
   //  CTRL + ALT + L => REFORMAT CODE

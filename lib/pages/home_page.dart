@@ -15,6 +15,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final List<Pokemon> pokemon = dataPokemon;
 
+  Future<void> _openDetail(pokemon, bool isFavorite) async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => DetailPage(pokemon: pokemon, isFavorite: isFavorite),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -23,15 +32,15 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(
           "Pokemon Go",
-          style: TextStyle(fontFamily: 'PokemonSolid', fontWeight: FontWeight.bold, color: Colors.amber),
+          style: TextStyle(
+            fontFamily: 'PokemonSolid',
+            fontWeight: FontWeight.bold,
+            color: Colors.amber,
+          ),
         ),
         centerTitle: true,
         leading: Icon(Icons.arrow_back_outlined),
-        actions: [
-          Icon(Icons.favorite),
-          SizedBox(width: 10),
-          
-        ],
+        actions: [Icon(Icons.favorite), SizedBox(width: 10)],
       ),
       body: Column(
         children: [
@@ -41,7 +50,12 @@ class _HomePageState extends State<HomePage> {
                 if (constraints.maxWidth <= 425) {
                   return ListView.builder(
                     itemBuilder: (context, index) {
-                      return PokemonList(pokemon: pokemon[index]);
+                      return PokemonList(
+                        pokemon: pokemon[index],
+                        isFavorite: true,
+                        onTap: () {},
+                        isFavoriteTap: () {},
+                      );
                     },
                     itemCount: pokemon.length,
                   );
@@ -51,7 +65,15 @@ class _HomePageState extends State<HomePage> {
                       crossAxisCount: 2,
                     ),
                     itemBuilder: (context, index) {
-                      return PokemonCard(pokemon: pokemon[index]);
+                      return PokemonCard(
+                        pokemon: pokemon[index],
+                        type: '',
+                        isFavorite: true,
+                        onTap: () {
+                          _openDetail(pokemon, true);
+                        },
+                        onFavoriteTap: () {},
+                      );
                     },
                     itemCount: pokemon.length,
                   );

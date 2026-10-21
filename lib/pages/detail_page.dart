@@ -6,7 +6,13 @@ import '../data/pokemon_data.dart';
 
 class DetailPage extends StatefulWidget {
   final Pokemon pokemon;
-  const DetailPage({super.key, required this.pokemon});
+  final bool isFavorite;
+
+  const DetailPage({
+    super.key,
+    required this.pokemon,
+    required this.isFavorite,
+  });
 
   @override
   State<DetailPage> createState() => _DetailPageState();

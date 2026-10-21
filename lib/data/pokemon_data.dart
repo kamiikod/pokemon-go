@@ -1,5 +1,6 @@
 import '../models/pokemon.dart';
 
+
 final List<Pokemon> dataPokemon = [
   // 1
   Pokemon(
