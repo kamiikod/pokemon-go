@@ -8,7 +8,7 @@ class PokemonList extends StatelessWidget {
   final bool isFavorite;
   final VoidCallback onTap;
   final VoidCallback onFavoriteTap;
-
+  final String type;
 
   const PokemonList({
     super.key,
@@ -16,39 +16,66 @@ class PokemonList extends StatelessWidget {
     required this.isFavorite,
     required this.onTap,
     required this.onFavoriteTap,
-
+    required this.type,
   });
+
+  Color _typerColor() {
+    if (type.contains('Water')) return Colors.blue;
+    if (type.contains('Fire')) return Colors.red;
+    if (type.contains('Grass')) return Colors.green;
+    if (type.contains('Electric')) return Colors.yellow;
+    if (type.contains('Ice')) return Colors.cyan;
+    if (type.contains('Fighting')) return Colors.orange;
+    if (type.contains('Poison')) return Colors.purple;
+    if (type.contains('Ground')) return Colors.brown;
+    if (type.contains('Flying')) return Colors.indigo;
+    if (type.contains('Psychic')) return Colors.pink;
+    if (type.contains('Bug')) return Colors.lightGreen;
+    if (type.contains('Rock')) return Colors.grey;
+    if (type.contains('Ghost')) return Colors.deepPurple;
+    if (type.contains('Dragon')) return Colors.deepOrange;
+    if (type.contains('Dark')) return Colors.black;
+    if (type.contains('Steel')) return Colors.blueGrey;
+    if (type.contains('Fairy')) return Colors.pinkAccent;
+    return Colors.grey; // Default color if no match is found
+  }
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Row(
-        children: [
-          ListTile(
-            leading: ClipRRect(
-              borderRadius: BorderRadius.circular(999),
-              child: Hero(
-                tag: pokemon.name,
-                child: Image.asset(
-                  pokemon.image,
-                  width: 56,
-                  height: 56,
-                  fit: BoxFit.cover,
-                ),
-              ),
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadiusGeometry.circular(15),
+        side: BorderSide(color: _typerColor()),
+      ),
+      child: ListTile(
+        onTap: onTap,
+        leading: Hero(
+          tag: pokemon.name,
+          child: ClipRRect(
+            borderRadius: BorderRadiusGeometry.circular(15),
+            child: Image.asset(
+              pokemon.image,
+              width: 67,
+              height: 67,
+              fit: BoxFit.cover,
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [Text(pokemon.name)],
-              ),
-            ),
+        ),
+        title: Text(
+          pokemon.name,
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
           ),
-          Icon(Icons.favorite_border_rounded),
-        ],
+        ),
+        subtitle: TypeChip(type: pokemon.type),
+        trailing: IconButton(
+          onPressed: onFavoriteTap,
+          icon: isFavorite ? Icon(Icons.favorite) : Icon(Icons.favorite_border),
+          color: isFavorite ? Colors.pink : Colors.grey,
+        ),
       ),
     );
   }
