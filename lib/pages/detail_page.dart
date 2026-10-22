@@ -6,13 +6,36 @@ import '../data/pokemon_data.dart';
 
 class DetailPage extends StatefulWidget {
   final Pokemon pokemon;
+  final String type;
   final bool isFavorite;
 
   const DetailPage({
     super.key,
     required this.pokemon,
+    required this.type,
     required this.isFavorite,
   });
+
+  Color _typerColor() {
+    if (type.contains('Water')) return Colors.blue;
+    if (type.contains('Fire')) return Colors.red;
+    if (type.contains('Grass')) return Colors.green;
+    if (type.contains('Electric')) return Colors.yellow;
+    if (type.contains('Ice')) return Colors.cyan;
+    if (type.contains('Fighting')) return Colors.orange;
+    if (type.contains('Poison')) return Colors.purple;
+    if (type.contains('Ground')) return Colors.brown;
+    if (type.contains('Flying')) return Colors.indigo;
+    if (type.contains('Psychic')) return Colors.pink;
+    if (type.contains('Bug')) return Colors.lightGreen;
+    if (type.contains('Rock')) return Colors.grey;
+    if (type.contains('Ghost')) return Colors.deepPurple;
+    if (type.contains('Dragon')) return Colors.deepOrange;
+    if (type.contains('Dark')) return Colors.black;
+    if (type.contains('Steel')) return Colors.blueGrey;
+    if (type.contains('Fairy')) return Colors.pinkAccent;
+    return Colors.grey; // Default color if no match is found
+  }
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -44,7 +67,13 @@ class _DetailPageState extends State<DetailPage> {
           style: TextStyle(fontFamily: 'Pokemon', fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        actions: [Icon(Icons.favorite_border), SizedBox(width: 10)],
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.favorite, color: Colors.pink),
+          ),
+          SizedBox(width: 10),
+        ],
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
