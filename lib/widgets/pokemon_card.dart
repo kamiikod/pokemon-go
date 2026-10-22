@@ -48,6 +48,9 @@ class PokemonCard extends StatelessWidget {
         child: Column(
           children: [
             Stack(
+              // fit: StackFit.expand,
+              // clipBehavior: Clip.antiAliasWithSaveLayer,
+              // textDirection: TextDirection.ltr,
               children: [
                 Hero(
                   tag: pokemon.name,
@@ -59,6 +62,17 @@ class PokemonCard extends StatelessWidget {
                       width: double.infinity,
                       height: 200,
                     ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      onFavoriteTap();
+                    },
+                    backgroundColor: Colors.transparent,
+                    child: IconButton(onPressed: onFavoriteTap, icon: isFavorite ? Icon(Icons.favorite) : Icon(Icons.favorite_outline_rounded), color: isFavorite? Colors.pink : Colors.grey,)
+                    
                   ),
                 ),
               ],
