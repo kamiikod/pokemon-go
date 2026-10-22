@@ -107,7 +107,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Switch(value: isSwitch, onChanged: (value) {}),
+                Switch(
+                  value: _showFavoriteOnly,
+                  onChanged: (value) {
+                    setState(() {
+                      _showFavoriteOnly = value;
+                    });
+                  },
+                ),
               ],
             ),
           ),
@@ -130,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                         onTap: () {
                           _openDetail(pokemon, isFavorite);
                         },
-                        isFavoriteTap: () {
+                        onFavoriteTap: () {
                           _toggleFavorite(pokemon.name);
                         },
                       );
@@ -139,11 +146,14 @@ class _HomePageState extends State<HomePage> {
                   );
                 } else {
                   int column = 3;
-                  if (constraints.maxWidth <= 768) column == 4;
+                  if (constraints.maxWidth <= 504) column == 4;
                   if (constraints.maxWidth <= 1024) column == 5;
                   return GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: column,
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12,
+                      childAspectRatio: 6 / 7,
                     ),
                     itemBuilder: (context, index) {
                       final pokemon = filtered[index];

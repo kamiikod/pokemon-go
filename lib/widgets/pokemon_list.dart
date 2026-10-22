@@ -7,24 +7,25 @@ class PokemonList extends StatelessWidget {
   final Pokemon pokemon;
   final bool isFavorite;
   final VoidCallback onTap;
-  final VoidCallback isFavoriteTap;
+  final VoidCallback onFavoriteTap;
+
 
   const PokemonList({
     super.key,
     required this.pokemon,
     required this.isFavorite,
     required this.onTap,
-    required this.isFavoriteTap,
+    required this.onFavoriteTap,
+
   });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Card(
-        child: Row(
-          children: [
-            ClipRRect(
+    return Card(
+      child: Row(
+        children: [
+          ListTile(
+            leading: ClipRRect(
               borderRadius: BorderRadius.circular(999),
               child: Hero(
                 tag: pokemon.name,
@@ -36,18 +37,18 @@ class PokemonList extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text(pokemon.name)],
-                ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [Text(pokemon.name)],
               ),
             ),
-            Icon(Icons.favorite_border_rounded),
-          ],
-        ),
+          ),
+          Icon(Icons.favorite_border_rounded),
+        ],
       ),
     );
   }

@@ -38,6 +38,7 @@ class PokemonCard extends StatelessWidget {
     }
 
     return InkWell(
+      onTap: onTap,
       child: Container(
         margin: EdgeInsets.all(15),
         decoration: BoxDecoration(
