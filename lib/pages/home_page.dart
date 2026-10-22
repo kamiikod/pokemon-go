@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => DetailPage(pokemon: pokemon, isFavorite: isFavorite),
+        builder: (_) => DetailPage(pokemon: pokemon, isFavorite: isFavorite, type: '',),
       ),
     );
     // ! + =
