@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                     column = 3;
                   }
                   if (constraints.maxWidth >= 1024) column = 4;
-                  return GridView.builder(
+                  return GridView.builder(  
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: column,
                       crossAxisSpacing: 12,
